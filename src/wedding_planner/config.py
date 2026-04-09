@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from dotevn import load_dotenv
+from dotenv import load_dotenv
 
 load_dotenv()
 
