@@ -1,10 +1,11 @@
 from dataclasses import dataclass, field
-from typing import Any,Callable
+from typing import Any, Callable
+
 
 @dataclass(frozen=True)
 class Tool:
     """A callable capability an agent can invoke.
-    
+
     Attributes:
         name: Unique identifier the LLM uses to call this tool.
         description: Natural-language explanation of what the tool does and when to use it.
@@ -18,11 +19,11 @@ class Tool:
     input_schema: dict[str, Any]
     function: Callable[..., Any]
 
+
 @dataclass(frozen=True)
 class Agent:
     name: str
     description: str
     system_prompt: str
     model: str
-    tools: list[Tool]
-
+    tools: list[Tool] = field(default_factory=list)
