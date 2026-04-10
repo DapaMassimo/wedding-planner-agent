@@ -20,11 +20,9 @@ def test_agents_values_are_the_actual_instances():
         "venue": VENUE_AGENT,
         "dj": DJ_AGENT,
     }
-    assert AGENTS["travel"] is TRAVEL_AGENT
-    assert AGENTS["venue"] is VENUE_AGENT
-    assert AGENTS["dj"] is DJ_AGENT
-    for key, instance in expected.items():
-        assert AGENTS[key] is instance, f"AGENTS['{key}'] is not the expected instance"
+    assert len(AGENTS) == len(expected), f"AGENTS has {len(AGENTS)} entries, expected {len(expected)}"
+    for key, expected_agent in expected.items():
+        assert AGENTS[key] is expected_agent, f"AGENTS['{key}'] is not the expected instance"
 
 # --- Uniqueness ---
 
