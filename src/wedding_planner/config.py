@@ -20,7 +20,7 @@ TAVILY_API_KEY = _required('TAVILY_API_KEY')
 
 # --- Defaults ---
 DEFAULT_MODEL = "o3-mini"
-ROUTER_MODEL = "o3-mini-scrauso" # cheaper model
+ROUTER_MODEL = "o3-mini"
 
 # --- Default model params ---
 DEFAULT_MAX_TOKENS = 4096
