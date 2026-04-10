@@ -5,7 +5,7 @@ from wedding_planner.config import DEFAULT_MODEL
 DJ_AGENT = Agent(
     name="dj",
     description="Queries music DB looking for a wedding appropriate playlist",
-    system_promp=DJ_SYSTEM_PROMPT,
+    system_prompt=DJ_SYSTEM_PROMPT,
     model=DEFAULT_MODEL,
     tools=[]
 )
