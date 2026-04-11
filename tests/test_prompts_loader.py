@@ -20,6 +20,10 @@ def test_venue_agent_prompt_matches_files():
 def test_dj_agent_prompt_matches_files():
     assert prompts_loader.DJ_SYSTEM_PROMPT == _read("dj")
 
+# Same check for the coordinator agent
+def test_coordinator_agent_prompt_matches_files():
+    assert prompts_loader.COORDINATOR_SYSTEM_PROMPT == _read("coordinator")
+
 # Ensure no prompt is empty or whitespace-only.
 # Catches accidentally empty files and the classic `f.read` (without parentheses)
 # bug, which would store the method object instead of the file content.
@@ -27,9 +31,11 @@ def test_prompts_are_non_empty():
     assert prompts_loader.TRAVEL_SYSTEM_PROMPT.strip()
     assert prompts_loader.VENUE_SYSTEM_PROMPT.strip()
     assert prompts_loader.DJ_SYSTEM_PROMPT.strip()
+    assert prompts_loader.COORDINATOR_SYSTEM_PROMPT.strip()
 
 # Type sanity check: constants must be strings, not file objects or methods.
 def test_prompts_are_strings():
     assert isinstance(prompts_loader.TRAVEL_SYSTEM_PROMPT, str)
     assert isinstance(prompts_loader.VENUE_SYSTEM_PROMPT, str)
     assert isinstance(prompts_loader.DJ_SYSTEM_PROMPT, str)
+    assert isinstance(prompts_loader.COORDINATOR_SYSTEM_PROMPT, str)

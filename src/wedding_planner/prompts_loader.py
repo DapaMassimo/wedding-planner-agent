@@ -8,3 +8,4 @@ def _load(name: str) -> str:
 TRAVEL_SYSTEM_PROMPT = _load("travel")
 VENUE_SYSTEM_PROMPT = _load("venue")
 DJ_SYSTEM_PROMPT = _load("dj")
+COORDINATOR_SYSTEM_PROMPT = _load("coordinator")

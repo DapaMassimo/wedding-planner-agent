@@ -57,7 +57,7 @@ def test_prompts_dir_exists():
 
 def test_prompts_dir_has_md_files():
     md_files = list(PROMPTS_DIR.glob("*.md"))
-    assert len(md_files) == 3
+    assert len(md_files) == 4
 
 # Full module reload test (integration) ---
 
