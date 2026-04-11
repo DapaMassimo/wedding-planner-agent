@@ -65,9 +65,9 @@ def test_agent_equality_different_fields(make_agent):
 
 # --- Agent with tools ---
 
-# Agent should store Tool instances in its tools list
+# Agent should store BaseTool instances in its tools list.
 def test_agent_with_tools(make_tool, make_agent):
-    tool = make_tool
+    tool = make_tool()
     agent = make_agent(tools=[tool])
     assert len(agent.tools) == 1
-    assert agent.tools[0] == tool
+    assert agent.tools[0] is tool

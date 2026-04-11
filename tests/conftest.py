@@ -1,6 +1,7 @@
 import pytest
+from langchain_core.tools import BaseTool, StructuredTool
+
 from wedding_planner.agents import Agent
-from wedding_planner.tools import Tool
 
 # --- Helper fixtures ---
 
@@ -11,26 +12,19 @@ def make_agent():
             "name": "test_agent",
             "description": "A test agent.",
             "system_prompt": "You are a test agent.",
-            "model": "test-model"
+            "model": "test-model",
         }
         return Agent(**(defaults | overrides))
     return _make
 
-@pytest.fixture
-def dummy_function():
-    def _dummy(x: int) -> str:
-        return str(x)
-    return _dummy
 
 @pytest.fixture
-def make_tool(dummy_function):
-    def _make(**overrides) -> Tool:
+def make_tool():
+    def _make(**overrides) -> BaseTool:
         defaults = {
             "name": "test_tool",
-            "description": "A test tool",
-            "input_schema": {"type": "object", "properties": {}},
-            "function": dummy_function,
+            "description": "A test tool.",
+            "func": lambda x: str(x),
         }
-        return Tool(**(defaults | overrides))
+        return StructuredTool.from_function(**(defaults | overrides))
     return _make
-
