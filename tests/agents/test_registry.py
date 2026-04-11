@@ -5,7 +5,6 @@ from wedding_planner.agents import (
     DJ_AGENT,
     __all__
 )
-from wedding_planner.agents.base import Agent
 
 # --- AGENTS dict structure ---
 
@@ -35,7 +34,7 @@ def test_agent_names_are_unique():
 
 # __all__ must contain exactly these symbols — no more, no less.
 def test_all_contains_exactly_expected_names():
-    assert set(__all__) == {"TRAVEL_AGENT", "VENUE_AGENT", "DJ_AGENT", "AGENTS"}
+    assert set(__all__) == {"Agent", "TRAVEL_AGENT", "VENUE_AGENT", "DJ_AGENT", "AGENTS"}
 
 # --- Catch-all validation (scales when you add agent) ---
 

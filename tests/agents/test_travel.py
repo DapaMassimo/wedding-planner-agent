@@ -1,5 +1,4 @@
-from pathlib import Path
-from wedding_planner.agents.base import Agent
+from wedding_planner.agents import Agent
 from wedding_planner.agents.travel import TRAVEL_AGENT
 from wedding_planner.config import DEFAULT_MODEL
 
