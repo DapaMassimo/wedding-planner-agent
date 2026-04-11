@@ -34,10 +34,10 @@ def test_required_raises_on_empty_string(monkeypatch):
 # --- Defaults tests (no mocking needed, these are just constants) ---
 
 def test_default_model():
-    assert DEFAULT_MODEL == "o3-mini"
+    assert DEFAULT_MODEL == "gpt-4o-mini"
 
 def test_router_model():
-    assert ROUTER_MODEL == "o3-mini"
+    assert ROUTER_MODEL == "gpt-4o-mini"
 
 def test_default_max_tokens():
     assert DEFAULT_MAX_TOKENS == 4096
