@@ -8,7 +8,3 @@ def _load(name: str) -> str:
 TRAVEL_SYSTEM_PROMPT = _load("travel")
 VENUE_SYSTEM_PROMPT = _load("venue")
 DJ_SYSTEM_PROMPT = _load("dj")
-
-print(TRAVEL_SYSTEM_PROMPT)
-print(VENUE_SYSTEM_PROMPT)
-print(DJ_SYSTEM_PROMPT)

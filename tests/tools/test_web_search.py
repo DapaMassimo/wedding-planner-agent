@@ -50,5 +50,4 @@ def test_web_search_tool_invokes_underlying_client():
     ) as mock_call:
         result = WEB_SEARCH_TOOL.invoke({"query": "test query"})
         mock_call.assert_called_once()
-        print(result)
         assert result is not None
