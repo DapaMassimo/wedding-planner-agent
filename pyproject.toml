@@ -8,7 +8,13 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "langchain>=1.2.15",
+    "langchain-mcp-adapters>=0.2.2",
+    "langchain-openai>=1.1.12",
+    "langchain-tavily>=0.2.17",
     "python-dotenv>=1.2.2",
+    "tavily>=1.1.0",
+    "tavily-python>=0.7.23",
 ]
 
 [build-system]
