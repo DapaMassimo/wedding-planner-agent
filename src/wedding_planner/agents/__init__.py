@@ -1,6 +1,7 @@
 from .travel import TRAVEL_AGENT
 from .venue import VENUE_AGENT
 from .dj import DJ_AGENT
+from .base import Agent
 
 
 AGENTS = {
@@ -9,4 +10,4 @@ AGENTS = {
     DJ_AGENT.name: DJ_AGENT
 }
 
-__all__ = ["TRAVEL_AGENT", "VENUE_AGENT", "DJ_AGENT", "AGENTS"]
+__all__ = ["Agent", "TRAVEL_AGENT", "VENUE_AGENT", "DJ_AGENT", "AGENTS"]
