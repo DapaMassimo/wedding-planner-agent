@@ -26,7 +26,7 @@ from wedding_planner.tools import WEB_SEARCH_TOOL
 # When this grows beyond ~5 entries, promote it to a tool_sources field
 # on the Agent dataclass.
 async def _fetch_mcp_tools_for(spec: Agent) -> list:
-    if spec.name == "travel":
+    if spec.name == "flight":
         return await get_kiwi_tools()
     elif spec.name == "dj" or spec.name == "venue":
         return [WEB_SEARCH_TOOL]

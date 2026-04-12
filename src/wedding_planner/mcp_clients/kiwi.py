@@ -3,7 +3,7 @@ MCP client for the Kiwi.com flight search server.
 
 Connects to Kiwi's hosted MCP endpoint and exposes its tools as
 LangChain BaseTool instances, ready to be passed into an agent's
-tool list. The travel agent uses this to search flights without
+tool list. The flight agent uses this to search flights without
 us having to write our own flight API integration.
 """
 from langchain_core.tools import BaseTool
