@@ -8,7 +8,7 @@ from wedding_planner.config import DEFAULT_MODEL, PROMPTS_DIR
 # --- Full import chain ---
 
 # If this test runs at all, the entire import chain works:
-# config.py -> prompts_loader.py -> agents/*.py → agents/__init__.py
+# config.py -> prompts_loader.py -> agents/*.py -> agents/__init__.py
 # A failure here means something fundamental is broken.
 def test_full_import_chain():
     assert AGENTS is not None
@@ -19,12 +19,12 @@ def test_full_import_chain():
 
 # Verify each agent's system_prompt matches the actual .md file.
 # Different from test_prompts_loader (which tests the loader constants)
-# and from test_travel/venue/dj (which test individual agents).
+# and from test_flight/venue/dj (which test individual agents).
 # This catches the case where an agent imports the WRONG constant
-# from prompts_loader — e.g. travel.py accidentally uses DJ_SYSTEM_PROMPT.
-def test_travel_agent_prompt_matches_source():
-    expected = (PROMPTS_DIR / "travel.md").read_text(encoding="utf-8")
-    assert AGENTS["travel"].system_prompt == expected
+# from prompts_loader — e.g. flight.py accidentally uses DJ_SYSTEM_PROMPT.
+def test_flight_agent_prompt_matches_source():
+    expected = (PROMPTS_DIR / "flight.md").read_text(encoding="utf-8")
+    assert AGENTS["flight"].system_prompt == expected
 
 
 def test_venue_agent_prompt_matches_source():

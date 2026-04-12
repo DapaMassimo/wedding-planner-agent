@@ -1,7 +1,7 @@
 """
 Coordinator agent builder.
 
-Builds the three sub-agents (travel, venue, dj), wraps each one as
+Builds the three sub-agents (flight, venue, dj), wraps each one as
 a LangChain tool, and then builds the coordinator agent with those
 wrapped tools as its only capabilities. The coordinator's LLM picks
 which sub-agent to delegate to based on the user's request.

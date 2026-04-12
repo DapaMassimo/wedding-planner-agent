@@ -9,8 +9,8 @@ def _read(name: str) -> str:
 
 # Verify the loaded constant matches the .md file content exactly.
 # Catches loader bugs: wrong filename, different encoding, unintended transformations.
-def test_travel_agent_prompt_matches_files():
-    assert prompts_loader.TRAVEL_SYSTEM_PROMPT == _read("travel")
+def test_flight_agent_prompt_matches_files():
+    assert prompts_loader.FLIGHT_SYSTEM_PROMPT == _read("flight")
 
 # Same check for the venue agent.
 def test_venue_agent_prompt_matches_files():
@@ -28,14 +28,14 @@ def test_coordinator_agent_prompt_matches_files():
 # Catches accidentally empty files and the classic `f.read` (without parentheses)
 # bug, which would store the method object instead of the file content.
 def test_prompts_are_non_empty():
-    assert prompts_loader.TRAVEL_SYSTEM_PROMPT.strip()
+    assert prompts_loader.FLIGHT_SYSTEM_PROMPT.strip()
     assert prompts_loader.VENUE_SYSTEM_PROMPT.strip()
     assert prompts_loader.DJ_SYSTEM_PROMPT.strip()
     assert prompts_loader.COORDINATOR_SYSTEM_PROMPT.strip()
 
 # Type sanity check: constants must be strings, not file objects or methods.
 def test_prompts_are_strings():
-    assert isinstance(prompts_loader.TRAVEL_SYSTEM_PROMPT, str)
+    assert isinstance(prompts_loader.FLIGHT_SYSTEM_PROMPT, str)
     assert isinstance(prompts_loader.VENUE_SYSTEM_PROMPT, str)
     assert isinstance(prompts_loader.DJ_SYSTEM_PROMPT, str)
     assert isinstance(prompts_loader.COORDINATOR_SYSTEM_PROMPT, str)

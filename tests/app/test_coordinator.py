@@ -1,6 +1,7 @@
 """Tests for the coordinator builder and agent-as-tool wrapping."""
 from unittest.mock import AsyncMock, MagicMock, patch
 
+import pytest
 from langchain_core.runnables import Runnable
 from langchain_core.messages import HumanMessage
 from langchain_core.tools import BaseTool
@@ -9,7 +10,7 @@ from wedding_planner.agents import (
     AGENTS,
     COORDINATOR_AGENT,
     DJ_AGENT,
-    TRAVEL_AGENT,
+    FLIGHT_AGENT,
     VENUE_AGENT,
 )
 from wedding_planner.app.coordinator import _agent_to_tool, build_coordinator
@@ -39,7 +40,7 @@ def test_agent_to_tool_description_matches_spec():
 # Wrapped tool must be a BaseTool.
 def test_agent_to_tool_returns_basetool():
     fake_runnable = MagicMock(spec=Runnable)
-    tool = _agent_to_tool(TRAVEL_AGENT, fake_runnable)
+    tool = _agent_to_tool(FLIGHT_AGENT, fake_runnable)
     assert isinstance(tool, BaseTool)
 
 
@@ -51,7 +52,7 @@ async def test_agent_to_tool_delegates_to_runnable():
     fake_message.content = "the answer"
     fake_runnable.ainvoke = AsyncMock(return_value={"messages": [fake_message]})
 
-    tool = _agent_to_tool(TRAVEL_AGENT, fake_runnable)
+    tool = _agent_to_tool(FLIGHT_AGENT, fake_runnable)
     result = await tool.ainvoke({"query": "find me a flight"})
 
     assert result == "the answer"

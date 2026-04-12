@@ -8,9 +8,9 @@ from wedding_planner.agents import Agent
 # All fields hsould be stored exactly as passed.
 def test_agent_stores_all_fields():
     agent = Agent(
-        name="travel",
-        description="Handles travel.",
-        system_prompt="You are a travel agent.",
+        name="flight",
+        description="Handles flights.",
+        system_prompt="You are a flight agent.",
         model="o3-mini",
         tools=[]
     )

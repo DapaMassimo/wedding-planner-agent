@@ -1,25 +1,25 @@
 from wedding_planner.agents import (
     AGENTS,
-    TRAVEL_AGENT,
+    FLIGHT_AGENT,
     VENUE_AGENT,
     COORDINATOR_AGENT,
     DJ_AGENT,
-    __all__
+    __all__,
 )
 
 # --- AGENTS dict structure ---
 
 # Registry must contain exactly the expected keys
 def test_agents_has_expected_keys():
-    assert set(AGENTS.keys()) == {"travel", "venue", "dj", "coordinator"}
+    assert set(AGENTS.keys()) == {"flight", "venue", "dj", "coordinator"}
 
 # Registry values must be the same objects as the module-level constants
 def test_agents_values_are_the_actual_instances():
     expected = {
-        "travel": TRAVEL_AGENT,
+        "flight": FLIGHT_AGENT,
         "venue": VENUE_AGENT,
         "dj": DJ_AGENT,
-        "coordinator": COORDINATOR_AGENT
+        "coordinator": COORDINATOR_AGENT,
     }
     assert len(AGENTS) == len(expected), f"AGENTS has {len(AGENTS)} entries, expected {len(expected)}"
     for key, expected_agent in expected.items():
@@ -36,7 +36,7 @@ def test_agent_names_are_unique():
 
 # __all__ must contain exactly these symbols — no more, no less.
 def test_all_contains_exactly_expected_names():
-    assert set(__all__) == {"Agent", "TRAVEL_AGENT", "VENUE_AGENT", "DJ_AGENT", "COORDINATOR_AGENT", "AGENTS"}
+    assert set(__all__) == {"Agent", "FLIGHT_AGENT", "VENUE_AGENT", "DJ_AGENT", "COORDINATOR_AGENT", "AGENTS"}
 
 # --- Catch-all validation (scales when you add agent) ---
 
