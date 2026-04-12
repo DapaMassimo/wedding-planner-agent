@@ -15,7 +15,7 @@ from langchain.agents import create_agent
 from wedding_planner.config import OPENAI_API_KEY
 from wedding_planner.agents import Agent
 from wedding_planner.mcp_clients import get_kiwi_tools
-from wedding_planner.tools import WEB_SEARCH_TOOL
+from wedding_planner.tools import WEB_SEARCH_TOOL, playlist_search
 
 
 # Hardcoded mapping: which agents need MCP tools fetched at build time.
@@ -28,8 +28,10 @@ from wedding_planner.tools import WEB_SEARCH_TOOL
 async def _fetch_mcp_tools_for(spec: Agent) -> list:
     if spec.name == "flight":
         return await get_kiwi_tools()
-    elif spec.name == "dj" or spec.name == "venue":
+    elif spec.name == "venue":
         return [WEB_SEARCH_TOOL]
+    elif spec.name == "dj":
+        return [playlist_search]
     return []
 
 async def build_agent(spec: Agent, extra_tools: list | None = None) -> Runnable:

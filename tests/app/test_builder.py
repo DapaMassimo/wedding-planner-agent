@@ -3,7 +3,7 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 from langchain_core.runnables import Runnable
 
-from wedding_planner.tools import WEB_SEARCH_TOOL
+from wedding_planner.tools import WEB_SEARCH_TOOL, playlist_search
 from wedding_planner.agents import FLIGHT_AGENT, VENUE_AGENT, DJ_AGENT, Agent
 from wedding_planner.app.builder import build_agent, _fetch_mcp_tools_for
 
@@ -29,7 +29,7 @@ async def test_fetch_mcp_tools_for_venue():
 # DJ agent must return WEB_SEARCH_TOOL.
 async def test_fetch_mcp_tools_for_dj():
     result = await _fetch_mcp_tools_for(DJ_AGENT)
-    assert result == [WEB_SEARCH_TOOL]
+    assert result == [playlist_search]
 
 # Non-flight, non-venue, non-dj agents must not fetch any MCP tools.
 async def test_fetch_mcp_tools_for_unknown_returns_empty(make_agent):
