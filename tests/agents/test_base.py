@@ -14,9 +14,9 @@ def test_agent_stores_all_fields():
         model="o3-mini",
         tools=[]
     )
-    assert agent.name == "travel"
-    assert agent.description == "Handles travel."
-    assert agent.system_prompt == "You are a travel agent."
+    assert agent.name == "flight"
+    assert agent.description == "Handles flights."
+    assert agent.system_prompt == "You are a flight agent."
     assert agent.model == "o3-mini"
     assert agent.tools == []
 
