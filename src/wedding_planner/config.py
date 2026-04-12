@@ -29,3 +29,4 @@ DEFAULT_TEMPERATURE = 1.0
 # --- Paths ---
 PACKAGE_ROOT = Path(__file__).parent
 PROMPTS_DIR = PACKAGE_ROOT / "prompts"
+CHINOOK_DB_PATH = PACKAGE_ROOT / "music_db" / "chinook.db"
