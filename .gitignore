@@ -83,6 +83,7 @@ uv.md
 # SQLite / local db
 *.sqlite3
 *.db
+!src/wedding_planner/music_db/chinhook.db
 
 # AI / ML specific
 models/
